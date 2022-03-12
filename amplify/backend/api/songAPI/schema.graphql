@@ -1,0 +1,17 @@
+type Song @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  title: String!
+  artist: String!
+  album: String!
+  cover: String!
+  likes: Int!
+}
+
+{
+  "id": "001",
+  "title": "Soke",
+  "artist": "Burna Boy",
+  "album": "On A Spaceship",
+  "cover": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.discogs.com%2FzQ5xIHHEuPFeLeBuoxCeoU2Pfr4%3D%2Ffit-in%2F600x597%2Ffilters%3Astrip_icc()%3Aformat(jpeg)%3Amode_rgb()%3Aquality(90)%2Fdiscogs-images%2FR-9071260-1474251036-7352.png.jpg&f=1&nofb=1",
+  "likes": 1000000
+}
