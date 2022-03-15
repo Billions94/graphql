@@ -10,7 +10,7 @@ export default function UpdateModal(props) {
     artist: "",
     album: "",
     cover: "",
-    likes: 0,
+    likes: "",
   };
 
   const [newSong, updateNewSong] = useState(initialState);
@@ -53,11 +53,11 @@ export default function UpdateModal(props) {
         centered
         show={props.smShow}
         onHide={() => props.setSmShow(false)}
-        aria-labelledby="example-modal-sizes-title-sm"
-      >
+        aria-labelledby="example-modal-sizes-title-sm">
+
         <RB.Modal.Header closeButton>
           <RB.Modal.Title id="example-modal-sizes-title-sm">
-            Small Modal
+            Update Song
           </RB.Modal.Title>
         </RB.Modal.Header>
         <RB.Modal.Body>
@@ -106,7 +106,7 @@ export default function UpdateModal(props) {
                 onChange={(e) => setInput("likes", e.target.value)}
               />
             </RB.FormGroup>
-            <RB.Button onClick={update} variant="success">
+            <RB.Button onClick={update} variant="warning">
               Update song
             </RB.Button>
           </RB.Form>

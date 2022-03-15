@@ -14,7 +14,7 @@ export default function Home() {
     artist: "",
     album: "",
     cover: "",
-    likes: 0,
+    likes: ""
   };
 
   const [newSong, updateNewSong] = useState(initialState);
