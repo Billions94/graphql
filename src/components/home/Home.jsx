@@ -6,6 +6,7 @@ import { createSong, deleteSong } from "../../graphql/mutations";
 import UpdateModal from "./homecomponents/UpdateModal";
 import MusicCards from "./homecomponents/MusicCards";
 import Form from "./homecomponents/Form";
+import { classNames } from "../lib";
 import "../../index.scss";
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
     artist: "",
     album: "",
     cover: "",
-    likes: ""
+    likes: "",
   };
 
   const [newSong, updateNewSong] = useState(initialState);
@@ -76,17 +77,15 @@ export default function Home() {
   }, [refresh]);
 
   return (
-    <RB.Row className="justify-content-center mt-3">
+    <RB.Row id="home" className="justify-content-center mt-3">
       <RB.Col md={4}>
-        <Form 
-          setInput={setInput} 
-          newSong={newSong} 
-          addSong={addSong} />
+        <Form setInput={setInput} newSong={newSong} addSong={addSong} />
       </RB.Col>
 
       <RB.Col md={7}>
         {songs.map((song, idx) => (
           <MusicCards
+            music={classNames.map((cls) => cls.className)}
             key={idx}
             song={song}
             index={idx}
@@ -110,3 +109,7 @@ export default function Home() {
     </RB.Row>
   );
 }
+
+//    background: chartreuse;
+//    background: darkcyan;
+//    background: yellow;

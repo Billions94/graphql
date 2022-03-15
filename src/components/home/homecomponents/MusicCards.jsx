@@ -1,9 +1,9 @@
 import * as RB from 'react-bootstrap'
 
-export default function MusicCards({ song, index, delSong, setSmShow, setSelectedSong }) {
+export default function MusicCards({ music, song, index, delSong, setSmShow, setSelectedSong }) {
   return (
     <div className="w-100 mt-2 songList">
-    <RB.Card className="w-100">
+    <RB.Card className={music[index]}>
       <RB.Card.Header className="d-flex">
         <RB.Image src={song.cover} width="100" alt="" />
         <div className="title">

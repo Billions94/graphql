@@ -18,22 +18,37 @@ code {
 #App {
   padding: 30px;
 
-  .songList {
-    .title {
-      margin-left: 10px;
-    }
+  #home {
 
-    .deleteAndUpdate {
-      display: flex;
-      flex-direction: column;
-      margin-left: auto;
-
-      .delete {
-        
+    .songList {
+      .first-index {
+        background: chartreuse;
       }
 
-      .update {
-        margin-top: 5px;
+      .second-index {
+        background: darkcyan;
+      }
+
+      .third-index {
+        background: yellow;
+      }
+
+      .title {
+        margin-left: 10px;
+      }
+  
+      .deleteAndUpdate {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+  
+        .delete {
+          
+        }
+  
+        .update {
+          margin-top: 5px;
+        }
       }
     }
   }
