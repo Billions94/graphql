@@ -15,7 +15,6 @@ export const createSong = /* GraphQL */ `
       likes
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -33,7 +32,6 @@ export const updateSong = /* GraphQL */ `
       likes
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -51,7 +49,6 @@ export const deleteSong = /* GraphQL */ `
       likes
       createdAt
       updatedAt
-      owner
     }
   }
 `;

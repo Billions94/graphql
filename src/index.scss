@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#App {
+  .songList {
+    .title {
+      margin-left: 10px;
+    }
+
+    .deleteAndUpdate {
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+
+      .delete {
+        
+      }
+
+      .update {
+        margin-top: 5px;
+      }
+    }
+  }
+}

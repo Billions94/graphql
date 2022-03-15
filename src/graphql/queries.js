@@ -12,7 +12,6 @@ export const getSong = /* GraphQL */ `
       likes
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -32,7 +31,6 @@ export const listSongs = /* GraphQL */ `
         likes
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }

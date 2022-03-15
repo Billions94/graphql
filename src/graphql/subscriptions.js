@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateSong = /* GraphQL */ `
-  subscription OnCreateSong($owner: String!) {
-    onCreateSong(owner: $owner) {
+  subscription OnCreateSong {
+    onCreateSong {
       id
       title
       artist
@@ -12,13 +12,12 @@ export const onCreateSong = /* GraphQL */ `
       likes
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const onUpdateSong = /* GraphQL */ `
-  subscription OnUpdateSong($owner: String!) {
-    onUpdateSong(owner: $owner) {
+  subscription OnUpdateSong {
+    onUpdateSong {
       id
       title
       artist
@@ -27,13 +26,12 @@ export const onUpdateSong = /* GraphQL */ `
       likes
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const onDeleteSong = /* GraphQL */ `
-  subscription OnDeleteSong($owner: String!) {
-    onDeleteSong(owner: $owner) {
+  subscription OnDeleteSong {
+    onDeleteSong {
       id
       title
       artist
@@ -42,7 +40,6 @@ export const onDeleteSong = /* GraphQL */ `
       likes
       createdAt
       updatedAt
-      owner
     }
   }
 `;
