@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import * as RB from "react-bootstrap";
 import { API, graphqlOperation } from "aws-amplify";
 import { listSongs } from "../../graphql/queries";
-import { createSong, deleteSong, updateSong } from "../../graphql/mutations";
+import { createSong, deleteSong } from "../../graphql/mutations";
+import UpdateModal from "./homecomponents/UpdateModal";
+import MusicCards from "./homecomponents/MusicCards";
+import Form from "./homecomponents/Form";
 import "../../index.scss";
-import UpdateModal from "./UpdateModal";
 
 export default function Home() {
   const initialState = {
@@ -76,96 +78,24 @@ export default function Home() {
   return (
     <RB.Row className="justify-content-center mt-3">
       <RB.Col md={4}>
-        <RB.Form className="mx-auto justify-content-center mt-3 w-100">
-          <RB.FormGroup className="mb-2">
-            <RB.FormControl
-              value={newSong.title}
-              placeholder="title"
-              type="text"
-              onChange={(e) => setInput("title", e.target.value)}
-            />
-          </RB.FormGroup>
-
-          <RB.FormGroup className="mb-2">
-            <RB.FormControl
-              value={newSong.artist}
-              placeholder="artist"
-              type="text"
-              onChange={(e) => setInput("artist", e.target.value)}
-            />
-          </RB.FormGroup>
-
-          <RB.FormGroup className="mb-2">
-            <RB.FormControl
-              value={newSong.album}
-              placeholder="album"
-              type="text"
-              onChange={(e) => setInput("album", e.target.value)}
-            />
-          </RB.FormGroup>
-
-          <RB.FormGroup className="mb-2">
-            <RB.FormControl
-              value={newSong.cover}
-              placeholder="cover"
-              type="text"
-              onChange={(e) => setInput("cover", e.target.value)}
-            />
-          </RB.FormGroup>
-
-          <RB.FormGroup className="mb-2">
-            <RB.FormControl
-              value={newSong.likes}
-              placeholder="likes"
-              type="number"
-              onChange={(e) => setInput("likes", e.target.value)}
-            />
-          </RB.FormGroup>
-          <RB.Button onClick={addSong} variant="success">
-            Add song
-          </RB.Button>
-        </RB.Form>
+        <Form 
+          setInput={setInput} 
+          newSong={newSong} 
+          addSong={addSong} />
       </RB.Col>
 
-      {/* <RB.Row className="justify-content-center mt-3"> */}
       <RB.Col md={7}>
         {songs.map((song, idx) => (
-          <div key={idx} className="w-100 mt-2 songList">
-            <RB.Card className="w-100">
-              <RB.Card.Header className="d-flex">
-                <RB.Image src={song.cover} width="100" alt="" />
-                <div className="title">
-                  <h5>{song.title}</h5>
-                  <h6>{song.album}</h6>
-                  {song.likes > 1 ? (
-                    <h6>{song.likes} likes</h6>
-                  ) : (
-                    <h6>{song.likes} like</h6>
-                  )}
-                </div>
-                <div className="deleteAndUpdate">
-                  <RB.Button
-                    onClick={() => delSong(idx)}
-                    variant="danger"
-                    className="delete"
-                  >
-                    delete
-                  </RB.Button>
-
-                  <RB.Button
-                    onClick={() => {
-                      setSmShow(true);
-                      setSelectedSong(idx);
-                    }}
-                    variant="warning"
-                    className="update">
-                    update
-                  </RB.Button>
-                </div>
-              </RB.Card.Header>
-            </RB.Card>
-          </div>
+          <MusicCards
+            key={idx}
+            song={song}
+            index={idx}
+            delSong={delSong}
+            setSmShow={setSmShow}
+            setSelectedSong={setSelectedSong}
+          />
         ))}
+
         <UpdateModal
           index={songIndex}
           smShow={smShow}

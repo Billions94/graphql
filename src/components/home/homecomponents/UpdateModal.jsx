@@ -1,7 +1,7 @@
 import * as RB from "react-bootstrap";
 import { useState } from "react";
-import { updateSong } from "../../graphql/mutations";
-import { API, graphqlOperation } from "aws-amplify";
+import { updateSong } from "../../../graphql/mutations";
+import { API, graphqlOperation } from "aws-amplify"; 
 
 export default function UpdateModal(props) {
 
