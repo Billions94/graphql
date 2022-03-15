@@ -4,7 +4,6 @@ import { updateSong } from "../../graphql/mutations";
 import { API, graphqlOperation } from "aws-amplify";
 
 export default function UpdateModal(props) {
-  const { index } = props;
 
   const initialState = {
     title: "",
@@ -22,6 +21,7 @@ export default function UpdateModal(props) {
 
   async function update() {
     try {
+      const { index } = props;
       const song = { ...props.songs[index] };
       // Appending the data from the form to the existing song
       song.title = newSong.title

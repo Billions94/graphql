@@ -56,7 +56,7 @@ export default function Home() {
     try {
       const song = songs[idx];
       console.log("this is the deleted song:", song);
-      await API.graphql(graphqlOperation(deleteSong, { input: { song, song } }) );
+      await API.graphql(graphqlOperation(deleteSong, { input: song.id }));
       updateNewSong(initialState);
     } catch (error) {
       console.log(error);
