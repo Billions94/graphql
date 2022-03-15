@@ -23,14 +23,17 @@ code {
     .songList {
       .first-index {
         background: chartreuse;
+        border: none;
       }
 
       .second-index {
         background: darkcyan;
+        border: none;
       }
 
       .third-index {
         background: yellow;
+        border: none;
       }
 
       .title {
@@ -43,11 +46,44 @@ code {
         margin-left: auto;
   
         .delete {
-          
+          background: transparent;
+          border: none;
+        }
+
+        .delete:active {
+          background: transparent;
+          border: none;
+          box-shadow: none;
+          outline: none;
+        }
+
+        .delete:focus {
+          background: transparent;
+          border: none;
+          box-shadow: none;
+          outline: none;
         }
   
         .update {
           margin-top: 5px;
+          background: transparent;
+          border: none;
+        }
+
+        .update:active {
+          margin-top: 5px;
+          background: transparent;
+          border: none;
+          box-shadow: none;
+          outline: none;
+        }
+
+        .update:focus {
+          margin-top: 5px;
+          background: transparent;
+          border: none;
+          box-shadow: none;
+          outline: none;
         }
       }
     }

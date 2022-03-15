@@ -40,6 +40,7 @@ export default function Home() {
     updateNewSong({ ...newSong, [key]: value });
   }
 
+  // Create a new song
   async function addSong() {
     try {
       const song = { ...newSong };
@@ -51,6 +52,7 @@ export default function Home() {
     }
   }
 
+  // Delete existing song by index
   async function delSong(idx) {
     try {
       const song = songs[idx];
@@ -110,6 +112,4 @@ export default function Home() {
   );
 }
 
-//    background: chartreuse;
-//    background: darkcyan;
-//    background: yellow;
+
