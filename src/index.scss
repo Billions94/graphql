@@ -1,4 +1,7 @@
 body {
+  background: url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F05%2FMusic-desktop-background-wallpapers.jpg&f=1&nofb=1);
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -14,7 +17,7 @@ code {
 
 #App {
   padding: 30px;
-  
+
   .songList {
     .title {
       margin-left: 10px;
