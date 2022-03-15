@@ -23,7 +23,13 @@ export default function UpdateModal(props) {
   async function update() {
     try {
       const song = { ...props.songs[index] };
-      console.log("is this the right song?", song);
+      // Appending the data from the form to the existing song
+      song.title = newSong.title
+      song.artist = newSong.artist
+      song.album = newSong.album
+      song.cover = newSong.cover
+      song.likes = newSong.likes
+      // Deleting these information because they are handled by graphql
       delete song.createdAt;
       delete song.updatedAt;
       delete song.owner;

@@ -19,12 +19,12 @@ export default function Home() {
   const [songs, updateSongs] = useState([]);
   const [smShow, setSmShow] = useState(false);
   const [refresh, updateRefresh] = useState(false);
-  const [selectedSong, setSelectedSong] = useState(0)
+  const [selectedSong, setSelectedSong] = useState(0);
 
-  const songIndex = songs.findIndex((s, index) => index === selectedSong)
-  const actualSong = songs[songIndex]
+  const songIndex = songs.findIndex((s, index) => index === selectedSong);
+  const actualSong = songs[songIndex];
 
-  console.log('this is the song', actualSong)
+  console.log("this is the song", actualSong);
 
   const getData = async () => {
     try {
@@ -52,12 +52,11 @@ export default function Home() {
     }
   }
 
-
   async function delSong(idx) {
     try {
       const song = songs[idx];
-      console.log('this is the deleted song:', song.id);
-      await API.graphql(graphqlOperation(deleteSong, { input: song.id }));
+      console.log("this is the deleted song:", song);
+      await API.graphql(graphqlOperation(deleteSong, { input: { song, song } }) );
       updateNewSong(initialState);
     } catch (error) {
       console.log(error);
@@ -142,14 +141,19 @@ export default function Home() {
                   <RB.Button
                     onClick={() => delSong(idx)}
                     variant="danger"
-                    className="delete">
+                    className="delete"
+                  >
                     delete
                   </RB.Button>
 
                   <RB.Button
-                    onClick={() => {setSmShow(true); setSelectedSong(idx)}}
+                    onClick={() => {
+                      setSmShow(true);
+                      setSelectedSong(idx);
+                    }}
                     variant="warning"
-                    className="update">
+                    className="update"
+                  >
                     update
                   </RB.Button>
                 </div>
@@ -157,15 +161,16 @@ export default function Home() {
             </RB.Card>
           </div>
         ))}
-        <UpdateModal 
-            index={songIndex}
-            smShow={smShow} 
-            setSmShow={setSmShow}
-            newSong={newSong}
-            songs={songs}
-            updateSongs={updateSongs}
-            updateNewSong={updateNewSong}
-            updateRefresh={updateRefresh} />
+        <UpdateModal
+          index={songIndex}
+          smShow={smShow}
+          setSmShow={setSmShow}
+          newSong={newSong}
+          songs={songs}
+          updateSongs={updateSongs}
+          updateNewSong={updateNewSong}
+          updateRefresh={updateRefresh}
+        />
       </RB.Col>
     </RB.Row>
   );
