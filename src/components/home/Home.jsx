@@ -22,15 +22,11 @@ export default function Home() {
   const [selectedSong, setSelectedSong] = useState(0);
 
   const songIndex = songs.findIndex((s, index) => index === selectedSong);
-  const actualSong = songs[songIndex];
-
-  console.log("this is the song", actualSong);
 
   const getData = async () => {
     try {
       const { data } = await API.graphql(graphqlOperation(listSongs));
       const { items } = data.listSongs;
-      console.log("This is the data", items);
       updateSongs(items);
     } catch (error) {
       console.log("Error occured while contacting db", error);
@@ -55,8 +51,18 @@ export default function Home() {
   async function delSong(idx) {
     try {
       const song = songs[idx];
-      console.log("this is the deleted song:", song);
-      await API.graphql(graphqlOperation(deleteSong, { input: song.id }));
+
+      delete song.title;
+      delete song.artist;
+      delete song.album;
+      delete song.cover;
+      delete song.likes;
+      delete song.createdAt;
+      delete song.updatedAt;
+      delete song.owner;
+
+      await API.graphql(graphqlOperation(deleteSong, { input: song }));
+      updateRefresh(true);
       updateNewSong(initialState);
     } catch (error) {
       console.log(error);
@@ -152,8 +158,7 @@ export default function Home() {
                       setSelectedSong(idx);
                     }}
                     variant="warning"
-                    className="update"
-                  >
+                    className="update">
                     update
                   </RB.Button>
                 </div>
