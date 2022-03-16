@@ -20,6 +20,22 @@ code {
 
   #home {
 
+    .addSongBtn {
+   
+    }
+
+    .addSongBtn:active {
+      box-shadow: none;
+      border: none;
+      outline: none;
+    }
+
+    .addSongBtn:focus {
+      box-shadow: none;
+      border: none;
+      outline: none;
+    }
+
     .main-feed {
 
       .search {
@@ -60,6 +76,7 @@ code {
         .card {
           position: relative;
           border: none;
+          cursor: pointer;
         }
 
         .card:hover .infos-container {
