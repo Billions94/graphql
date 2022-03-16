@@ -11,21 +11,26 @@ export default function MusicCards({ music, song, index, delSong, setSmShow, set
   const close = () => updateMoreInfo(false);
 
   return (
-    <div className="w-100 mt-2 songList">
-      <RB.Card className={music[index]}
+    <div className="w-50 mt-2 songList">
+      <RB.Card 
+        className='card h-100'
         onMouseEnter={open} 
         onMouseLeave={close}>
-        <RB.Card.Header className="d-flex">
-          <RB.Image src={song.cover} width="100" alt="" />
-          { moreInfo === true &&
+      
+          <RB.Image src={song.cover} width="100%" height="100%" alt="" />
+
+          {/* { moreInfo === true && */}
+          <div className={`${music[index]} infos-container`}>
+            <RB.Card.Header className="d-flex">
             <>
-              <div className="title">
-                <h5>{song.title}</h5>
-                <h6>{song.album}</h6>
+              <div className="songInfo">
+                <h5 className='title'>{song.title}</h5>
+                <h6 className='artist'>{song.artist}</h6>
+                <h6 className='album'>{song.album}</h6>
                 {song.likes > 1 ? (
-                  <h6>{song.likes} likes</h6>
+                  <h6 className='likes'>{song.likes} likes</h6>
                 ) : (
-                  <h6>{song.likes} like</h6>
+                  <h6 className='likes'>{song.likes} like</h6>
                 )}
               </div>
               <div className="deleteAndUpdate">
@@ -44,8 +49,9 @@ export default function MusicCards({ music, song, index, delSong, setSmShow, set
                 </RB.Button>
               </div>
             </>
-          }
-        </RB.Card.Header>
+            </RB.Card.Header>
+          </div>
+          {/* } */}
       </RB.Card>
     </div>
   );

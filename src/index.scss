@@ -20,72 +20,165 @@ code {
 
   #home {
 
-    .songList {
-      .first-index {
-        background: chartreuse;
+    .main-feed {
+
+      .search {
+        background: transparent;
+        color: white;
+      }
+
+      .search:active {
+        background: transparent;
+        color: white;
+        outline: 2px solid #e9297d;
+        box-shadow: none;
+        border: none;
+
+      }
+
+      .search:focus {
+        background: transparent;
+        color: white;
+        outline: 2px solid #e9297d;
+        box-shadow: none;
         border: none;
       }
 
-      .second-index {
-        background: darkcyan;
-        border: none;
+      .search {
+        background: transparent;
+        color: white;
       }
-
-      .third-index {
-        background: yellow;
-        border: none;
-      }
-
-      .title {
-        margin-left: 10px;
-      }
-  
-      .deleteAndUpdate {
+      // display: flex;
+      .musicCards {
         display: flex;
-        flex-direction: column;
-        margin-left: auto;
-  
-        .delete {
-          background: transparent;
+      }
+
+      .songList {
+        margin-right: 10px;
+
+        .card {
+          position: relative;
           border: none;
         }
 
-        .delete:active {
-          background: transparent;
-          border: none;
-          box-shadow: none;
-          outline: none;
+        .card:hover .infos-container {
+          display: block;
+          // position: absolute;
+          visibility: visible;
+          transform: translateY(1.5rem);
+          padding: 1rem;
+          pointer-events: initial;
+          transition: ease-in-out 0.5s;
+          transition-delay: ease-in 0.5s;
+          // -webkit-box-shadow: 0px 10px 13px -7px #494848, 0px 3px 17px 5px rgba(110, 109, 109, 0.52); 
+          // box-shadow: 0px 10px 13px -7px #525252, 0px 3px 17px 5px rgba(82, 82, 82, 0.52);
+
         }
 
-        .delete:focus {
-          background: transparent;
-          border: none;
-          box-shadow: none;
-          outline: none;
+        .infos-container {
+          width: 100%;
+          bottom: 0;
+          color: white;
+          background: #141414;
+          position: absolute;
+          visibility: hidden;
+          // display: none;
+          transition: ease-in-out 0.5s;
+          transition-delay: ease-in 0.5s;
+          // transition: all 0.25s ease-in-out, padding 0.25s ease-out 0.15s;
+          pointer-events: none;
+          overflow: hidden;
         }
-  
-        .update {
-          margin-top: 5px;
-          background: transparent;
+
+
+        .first-index {
+          background: chartreuse;
+          border: none;
+          // display: flex;
+        }
+
+        .second-index {
+          background: darkcyan;
           border: none;
         }
 
-        .update:active {
-          margin-top: 5px;
-          background: transparent;
+        .third-index {
+          background: yellow;
           border: none;
-          box-shadow: none;
-          outline: none;
         }
 
-        .update:focus {
-          margin-top: 5px;
-          background: transparent;
-          border: none;
-          box-shadow: none;
-          outline: none;
+        .songInfo {
+          margin-left: 5px;
+        }
+
+        .title {
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        .artist {
+          font-size: 17px;
+          font-weight: 400;
+        }
+
+        .album {
+          font-size: 15px;
+          font-weight: 400;
+        }
+
+        .likes {
+          font-size: 18px;
+          font-weight: 300;
+        }
+
+        .deleteAndUpdate {
+          display: flex;
+          flex-direction: column;
+          margin-left: auto;
+
+          .delete {
+            background: transparent;
+            border: none;
+          }
+
+          .delete:active {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            outline: none;
+          }
+
+          .delete:focus {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            outline: none;
+          }
+
+          .update {
+            margin-top: 5px;
+            background: transparent;
+            border: none;
+          }
+
+          .update:active {
+            margin-top: 5px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            outline: none;
+          }
+
+          .update:focus {
+            margin-top: 5px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            outline: none;
+          }
         }
       }
     }
+
   }
 }

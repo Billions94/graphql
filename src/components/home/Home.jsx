@@ -8,6 +8,7 @@ import MusicCards from "./homecomponents/MusicCards";
 import Form from "./homecomponents/Form";
 import { classNames } from "../lib";
 import "../../index.scss";
+import Search from "./homecomponents/Search";
 
 export default function Home() {
   const initialState = {
@@ -84,32 +85,33 @@ export default function Home() {
         <Form setInput={setInput} newSong={newSong} addSong={addSong} />
       </RB.Col>
 
-      <RB.Col md={7}>
-        {songs.map((song, idx) => (
-          <MusicCards
-            music={classNames.map((cls) => cls.className)}
-            key={idx}
-            song={song}
-            index={idx}
-            delSong={delSong}
-            setSmShow={setSmShow}
-            setSelectedSong={setSelectedSong}
-          />
-        ))}
+      <RB.Col md={7} className="main-feed">
+        <Search updateSongs={updateSongs} />
+        <div className='musicCards'>
+          {songs.map((song, idx) => (
+            <MusicCards
+              music={classNames.map((cls) => cls.className)}
+              key={idx}
+              song={song}
+              index={idx}
+              delSong={delSong}
+              setSmShow={setSmShow}
+              setSelectedSong={setSelectedSong}
+            />
+          ))}
 
-        <UpdateModal
-          index={songIndex}
-          smShow={smShow}
-          setSmShow={setSmShow}
-          newSong={newSong}
-          songs={songs}
-          updateSongs={updateSongs}
-          updateNewSong={updateNewSong}
-          updateRefresh={updateRefresh}
-        />
+          <UpdateModal
+            index={songIndex}
+            smShow={smShow}
+            setSmShow={setSmShow}
+            newSong={newSong}
+            songs={songs}
+            updateSongs={updateSongs}
+            updateNewSong={updateNewSong}
+            updateRefresh={updateRefresh}
+          />
+        </div>
       </RB.Col>
     </RB.Row>
   );
 }
-
-
