@@ -1,7 +1,7 @@
 import * as RB from "react-bootstrap";
 import * as Icon from "../../lib";
 import { useState } from "react";
-// eslint-disable-next-line 
+
 
 export default function MusicCards({ music, song, index, delSong, setSmShow, setSelectedSong }) {
 
